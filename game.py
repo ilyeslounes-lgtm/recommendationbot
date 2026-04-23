@@ -10,3 +10,23 @@ games = [
     {"Name": "Marvel's Spider-Man", "genre": "Action, Adventure", "platform": "PlayStation", "mood": "heroic", "difficulty": "medium", "year": 2019},
     {"Name": "Portal 2", "genre": "Puzzle, Adventure", "platform": "PC", "mood": "fun", "difficulty": "medium", "year": 2011}
 ]
+genre = input("Vilken genre gillar du? ")
+mood = input("Vilken stamning vill du ha? ")
+best_score = 0
+best_game = ""
+
+for game in games :
+    score = 0
+    if game["genre"] == genre: 
+        score += 2
+    if game [ "mood" ] == mood: 
+        score += 1
+    if score > best_score:
+        best_score = score
+        best_game = game["Name"]
+
+print("Vi rekommenderar:", best_game)
+
+
+
+
