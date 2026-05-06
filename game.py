@@ -10,22 +10,39 @@ games = [
     {"Name": "Marvel's Spider-Man", "genre": "Action, Adventure", "platform": "PlayStation", "mood": "heroic", "difficulty": "medium", "year": 2019},
     {"Name": "Portal 2", "genre": "Puzzle, Adventure", "platform": "PC", "mood": "fun", "difficulty": "medium", "year": 2011}
 ]
-genre = input("Vilken genre gillar du? ")
-mood = input("Vilken stamning vill du ha? ")
-best_score = 0
-best_game = ""
+#lista på alla spelen med genre mood svårighets grad och utgivningsdatum 
+while True:
+    genre = input("Vilken genre gillar du? (skriv 'exit' för att avsluta) ")
+    
+    if genre == "exit":
+        break
+    #En while loop där koden körs så länge vilkoret är sant eller om användaren skriver exit
+        
+       
 
-for game in games :
-    score = 0
-    if game["genre"] == genre: 
-        score += 2
-    if game [ "mood" ] == mood: 
-        score += 1
-    if score > best_score:
-        best_score = score
-        best_game = game["Name"]
-
-print("Vi rekommenderar:", best_game)
+    mood = input("Vilken stamning vill du ha? ")
+    #Frågar användaren vilken mood hen vill ha
+    best_score = 0
+    #bästa poängen hittils
+    best_game 
+    #vilket spel som ska vara det bästa
+    for game in games:
+        score = 0
+        # går igenom alla spel tror jag idk
+        if genre in game["genre"] :
+            score += 2
+            #Om nyckelordet t.ex Action finns i användarens input så kommer spelet få 2 poäng
+        if mood == game["mood"] :
+            score += 1
+            #om nyckelordet t.ex serious finns i användarnens input så kommer spelet få 1 poäng
+        if score > best_score:
+            best_score = score
+            best_game = game["Name"]
+            #om bästa poängen är större än det urspurnglia så kommer det vara det bästa spelet
+            
+            print("Vi rekommenderar:", best_game)
+    
+    #de rekommenderar spelet med det högsta poäng
 
 
 
