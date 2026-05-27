@@ -1,4 +1,4 @@
- = [
+games = [
     {"Name": "Minecraft", "genre": "Sandbox", "platform": "all", "mood": "happy", "difficulty": "easy", "year": 2009},
     {"Name": "Half-Life 2", "genre": "FPS", "platform": "PC", "mood": "happy", "difficulty": "medium", "year": 2004},
     {"Name": "GTA IV", "genre": "Action, Open World", "platform": "all", "mood": "serious", "difficulty": "medium", "year": 2008},
@@ -11,64 +11,93 @@
     {"Name": "Portal 2", "genre": "Puzzle, Adventure", "platform": "PC", "mood": "fun", "difficulty": "medium", "year": 2011}
 ]
 
+# fortsatta tills anvansdren skriver exit
 while True:
+
+    # vill veta vilken genre anvandaren vill ha
     genre = input("Vilken genre gillar du? (skriv 'exit' for att avsluta) ")
 
+    # programmet kommer sluta om anvandaren skriver exit
     if genre == "exit":
         break
-    #En while loop dar koden kors sa lange vilkoret er sant eller om anvandaren skriver exit
 
+    # Fragar efter stamning
     mood = input("Vilken stamning vill du ha? ")
-    #Fragar anvandaren vilken mood hen vill ha
 
+    # Fragar efter platform
     platform = input("Vilken platform vill du ha? ")
 
+    # Fragar efter svarighetsgrad
     difficulty = input("Vilken difficulty vill du ha? ")
 
+    # Lista for rekommendationer
     recommendations = []
 
+    # Sparar hogsta poang
     best_score = 0
-    #basta poangen hittils
 
+    # Sparar basta spelet
     best_game = ""
-    #vilket spel som ska vara det basta
 
+    # går igenom alla spel i listan
     for game in games:
-        score = 0
-        #Gar igenom alla spel
 
+        # startar fran 0
+        score = 0
+
+        # 2 poang om genre passar
         if genre in game["genre"]:
             score += 2
-            #Om nyckelordet t.ex Action finns i anvandarens input sa kommer spelet fa 2 poang
 
+        # 1 poang om stamning passar
         if mood == game["mood"]:
             score += 1
-            #Om nyckelordet t.ex serious finns i anvandarens input sa kommer spelet fa 1 poang
 
+        #  1 poang om platform passar
         if platform == game["platform"]:
             score += 1
-            #Om platformen matchar far spelet 1 poang
 
+        #  1 poang om svarighetsgrad passar
         if difficulty == game["difficulty"]:
             score += 1
-            #Om difficulty matchar far spelet 1 poang
 
+        # Sparar spelet med hogst poang
         if score > best_score:
             best_score = score
             best_game = game["Name"]
-            #Om basta poangen ar storre an den gamla sa blir det det basta spelet
 
+        # Lagger till spel och poang i listan
         recommendations.append((score, game["Name"]))
 
+    # Sorterar listan efter hogst poang
     recommendations.sort(reverse=True)
 
     print("\nVi rekommenderar:")
-
+    #"/nVi gor so att dem skriver sakerna dar nere och en separat rad
+    # Skriver ut topp 3 spel
     for score, name in recommendations[:3]:
         print("-", name, "(Poang:", score, ")")
 
+    # Skriver ut basta spelet
     print("Basta spelet for dig ar:", best_game)
 
+    # Fragar om rekommendationerna var bra
+    feedback = input("Var nagon av rekommendationerna bra? (ja/nej) ")
+
+    if feedback == "ja":
+
+        print("Kul! Jag kommer rekommendera liknande spel nasta gang.")
+
+        # Uppdaterar spelets data baserat pa anvandarens val
+        for game in games:
+
+            if game["Name"] == best_game:
+                game["difficulty"] = difficulty
+                game["mood"] = mood
+
+    elif feedback == "nej":
+
+        print("Okej, jag forsoker battre nasta gang.")
 
 
 
