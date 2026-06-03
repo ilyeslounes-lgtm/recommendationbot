@@ -8,9 +8,21 @@ games = [
     {"Name": "Elden Ring", "genre": "Open World, Fight", "platform": "all", "mood": "epic", "difficulty": "hard", "year": 2022},
     {"Name": "Batman: Arkham Knight", "genre": "Open World, Fight", "platform": "all", "mood": "dark", "difficulty": "medium", "year": 2015},
     {"Name": "Marvel's Spider-Man", "genre": "Action, Adventure", "platform": "PlayStation", "mood": "heroic", "difficulty": "medium", "year": 2019},
-    {"Name": "Portal 2", "genre": "Puzzle, Adventure", "platform": "PC", "mood": "fun", "difficulty": "medium", "year": 2011}
+    {"Name": "Portal 2", "genre": "Puzzle, Adventure", "platform": "PC", "mood": "fun", "difficulty": "medium", "year": 2011},
+    {"Name": "Dishonored", "genre": "Action, stealth, immersive", "platform": "all", "mood": "dystopia", "difficulty": "medium", "year": 2012} ,
+    {"Name": "The Witcher 3: Wild Hunt", "genre": "RPG, Open World", "platform": "all", "mood": "epic", "difficulty": "medium", "year": 2015},
+    {"Name": "Hades", "genre": "Roguelike, Action", "platform": "all", "mood": "fast", "difficulty": "hard", "year": 2020},
+    {"Name": "Subnautica", "genre": "Survival, Exploration", "platform": "all", "mood": "calm", "difficulty": "medium", "year": 2018},
+    {"Name": "Stardew Valley", "genre": "Farming, Simulation", "platform": "all", "mood": "relaxing", "difficulty": "easy", "year": 2016},
+    {"Name": "Sekiro: Shadows Die Twice", "genre": "Action, Soulslike", "platform": "all", "mood": "intense", "difficulty": "hard", "year": 2019},
+    {"Name": "Hollow Knight", "genre": "Metroidvania", "platform": "all", "mood": "mysterious", "difficulty": "hard", "year": 2017},
+    {"Name": "Titanfall 2", "genre": "FPS", "platform": "PC", "mood": "exciting", "difficulty": "medium", "year": 2016},
+    {"Name": "Terraria", "genre": "Sandbox, Survival", "platform": "all", "mood": "creative", "difficulty": "medium", "year": 2011},
+    {"Name": "Control", "genre": "Action, Adventure", "platform": "all", "mood": "strange", "difficulty": "medium", "year": 2019},
+    {"Name": "Death Stranding", "genre": "Adventure, Open World", "platform": "all", "mood": "atmospheric", "difficulty": "medium", "year": 2019}
 ]
-
+#frågade AI för 10 random spel för jag inte visste om så många spel
+#En databas full av alla spel som rekommendationen kan rekommendera 
 # fortsatta tills anvansdren skriver exit
 while True:
 
@@ -39,7 +51,7 @@ while True:
     # Sparar basta spelet
     best_game = ""
 
-    # går igenom alla spel i listan
+    # gar igenom alla spel i listan
     for game in games:
 
         # startar fran 0
@@ -71,9 +83,9 @@ while True:
 
     # Sorterar listan efter hogst poang
     recommendations.sort(reverse=True)
-
+    #fick hjalp av AI lite har
     print("\nVi rekommenderar:")
-    #"/nVi gor so att dem skriver sakerna dar nere och en separat rad
+    #"/nVi gor so att dem skriver sakerna dar nere och en separat rad fick hjalp av AI hur
     # Skriver ut topp 3 spel
     for score, name in recommendations[:3]:
         print("-", name, "(Poang:", score, ")")
